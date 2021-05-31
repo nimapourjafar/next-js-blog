@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import { blogPost } from '../lib/data'
 
 export default function Home() {
   return (
@@ -14,6 +16,17 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
       </main>
-    </div>
+      <div>
+        {blogPost.map((blog)=>(
+          <div key={blog.slug}>
+            <div>
+              <Link href={`/blog/${blog.slug}`}><a><h2>{blog.title}</h2></a></Link>
+            </div>
+            <h3>{blog.date.toString()}</h3>
+            <p>{blog.content}</p>
+          </div>
+        ))}
+      </div>
+    </div> 
   )
 }
