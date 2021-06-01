@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import {format,parseISO} from 'date-fns'
 import { blogPost } from '../../lib/data';
 
 export default function BlogPost({title,date,content}) {
@@ -11,11 +12,9 @@ export default function BlogPost({title,date,content}) {
       </Head>
 
       <main>
-        <h1>
-          {title}
-        </h1>
-        <h2>{date}</h2>
-        <p>{content}</p>
+        <h2 className="font-bold text-3xl">{title}</h2>
+        <h3 className="text-gray-500">{format(parseISO(date),'MMMM do, uuu')}</h3>
+        <p className="my-10">{content}</p>
       </main>
     </div>
   )

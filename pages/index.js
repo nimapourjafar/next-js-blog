@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import {format,parseISO} from 'date-fns'
 import { blogPost } from '../lib/data'
 
 export default function Home() {
@@ -15,11 +16,11 @@ export default function Home() {
         {blogPost.map((blog)=>(
           <div key={blog.slug}>
             <Link href={`/blog/${blog.slug}`}>
-              <div className="transition duration-500 ease-in-out shadow-xl bg-blue-600 border-2 rounded-lg p-6 hover:bg-blue-700">
+              <div className="cursor-pointer transition duration-500 ease-in-out bg-blue-600 rounded-xl p-6 hover:bg-blue-700 hover:shadow-2xl">
                   <h2 className="text-2xl font-bold">
                     {blog.title}
                   </h2>
-                  <h3>{blog.date.toString()}</h3>
+                  <h3>{format(parseISO(blog.date),'MMMM do, uuu')}</h3>
                   <p>{blog.content}</p>
               </div>
             </Link>
