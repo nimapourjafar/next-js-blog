@@ -11,19 +11,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
-      <div>
+      <div className="space-y-5 text-white">
         {blogPost.map((blog)=>(
           <div key={blog.slug}>
-            <div>
-              <Link href={`/blog/${blog.slug}`}><a>{blog.title}</a></Link>
-            </div>
-            <h3>{blog.date.toString()}</h3>
-            <p>{blog.content}</p>
+            <Link href={`/blog/${blog.slug}`}>
+              <div className="transition duration-500 ease-in-out shadow-xl bg-blue-600 border-2 rounded-lg p-6 hover:bg-blue-700">
+                  <h2 className="text-2xl font-bold">
+                    {blog.title}
+                  </h2>
+                  <h3>{blog.date.toString()}</h3>
+                  <p>{blog.content}</p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>

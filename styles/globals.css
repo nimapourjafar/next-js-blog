@@ -4,6 +4,6 @@
 
 @layer base {
     a{
-        @apply ease-in-out border-b-4 border-green-500 text-xl hover:border-green-800 transition duration-500;
+        @apply ease-in-out border-b-4 border-purple-600 text-xl hover:border-purple-900 transition duration-500;
     }
 }
